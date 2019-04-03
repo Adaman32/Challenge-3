@@ -98,6 +98,7 @@ label{
 	border-color: #2CFF02;
 	color: #2CFF02;
 	font-size: 20px;
+	width: 100px;
 }
 
 #longitude{
@@ -107,6 +108,7 @@ label{
 	border-color: #2CFF02;
 	color: #2CFF02;
 	font-size: 20px;
+	width: 100px;
 }
 
 #weatherContainer{
@@ -149,6 +151,14 @@ img {
 	padding: 10px;
 	font-family: 'Alien_Encounters', sans-serif;
 	margin: 10px;
+}
+
+
+/*Turning off the number input arrows*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 
