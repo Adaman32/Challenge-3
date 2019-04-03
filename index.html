@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Landing Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<script  src="scripts/apiScript.js" defer></script>
+   <script src="scripts/TweenMax.min.js"></script>
+</head>
+<body>
+   <h1>Landing Dashboard</h1>
+   <h2 id="date"></h2>
+
+   <div id="coordinates">
+      <label for="latitude">Latitude:</label>
+      <input type="number" name="latitude" id="latitude">
+      <label for="longitude">Longitude:</label>
+      <input type="number" name="longitude" id="longitude">
+   </div>
+   <div id="buttonContainer">
+      <input type="button" id="confirm" value="Show Landing Site">
+   </div>
+
+   <div id="content" style="opacity: 0">
+      <div id="weatherContainer">
+         <figure id="weatherIcon"></figure>
+         <p id="weather"></p>
+      </div>
+      <div id="maps">
+         <figure id="landingSiteBig"></figure>
+         <figure id="landingSiteDetail"></figure>
+      </div>
+   </div>
+</body>
+</html>
