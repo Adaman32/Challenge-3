@@ -31,20 +31,26 @@ function getAPIdata() {
 	var latitude = document.getElementById("latitude").value;
 	var longitude = document.getElementById("longitude").value;
 
+	// creating url and apiKey of the map
 	var url = 'https://open.mapquestapi.com/staticmap/v4/getmap?key='
 	var apiKey = 'bcmv73EjuMc6bUyoC1yGPeGFKIJaLqMu'
 
+	// adding the latitude and longitude to both maps
 	var image1 = url + apiKey + "&size=600,600&zoom=12&type=hyb&scalebar=false&center="+latitude+","+longitude;
 	var image2 = url + apiKey + "&size=600,600&zoom=18&type=sat&scalebar=false&center="+latitude+","+longitude;
 
+	// displaying the maps in the html
 	document.getElementById('landingSiteBig').innerHTML="<img src=\'"+image1+"\'><figcaption>Landing Area - Larger Overview</figcaption>";
 	document.getElementById('landingSiteDetail').innerHTML="<img src=\'"+image2+"\'><figcaption>Detail of Landing Site (if available)</figcaption>";
 
+	// getting Weather url and apiKey
 	var urlWeather = "https://api.openweathermap.org/data/2.5/weather";
 	var apiKeyWeather = "00f4e138276846aa542ba7a053b507c6";
 
+	//constructing request
 	var request = urlWeather + "?appid=" + apiKeyWeather + "&lat=" + latitude + "&lon=" + longitude;
 
+	//fetching AJAX call
 	fetch(request)
 
 	.then(function(response) {
@@ -83,6 +89,7 @@ function onAPIWeatherSuccess(response) {
 
 	var icon = document.getElementById('weatherIcon');
 
+	// determining the weather icon
 	switch(response.weather[0].main){
 		case 'Clear' || 'Drizzle':
 			icon.innerHTML = "<img src=\"images/sun.png\">";
@@ -100,15 +107,16 @@ function onAPIWeatherSuccess(response) {
 		case 'Snow':
 			icon.innerHTML = "<img src=\"images/snow.png\">";
 			break;
-		case 'Mist':
-		case 'Smoke':
-		case 'Haze':
-		case 'Dust':
-		case 'Fog':
-		case 'Sand':
-		case 'Ash':
-		case 'Squall':
-		case 'Tornado':
+		// case 'Mist':
+		// case 'Smoke':
+		// case 'Haze':
+		// case 'Dust':
+		// case 'Fog':
+		// case 'Sand':
+		// case 'Ash':
+		// case 'Squall':
+		// case 'Tornado':
+		default:
 			icon.innerHTML = "<img src=\"images/mist.png\">";
 			break;
 	}
@@ -128,7 +136,7 @@ function onAPIError(error) {
 	weather.innerHTML = 'No weather data available'; 
 }
 
-//display the picture of selected latitude and longitude
+//display the picture of selected latitude and longitude with a GSAP animation
 document.getElementById("confirm").onclick = function(){
 
 	var content = document.getElementById('content');
